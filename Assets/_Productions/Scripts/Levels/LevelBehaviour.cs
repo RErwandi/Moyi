@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Fusion;
 using UnityEngine;
 
-public class LevelBehaviour : MonoBehaviour
+public class LevelBehaviour : NetworkBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Spawned()
     {
-        
+        FindObjectOfType<PlayerSpawner>().RespawnPlayers(Runner);
+        StartLevel();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void StartLevel()
     {
-        
+        LoadingManager.Instance.FinishLoadingScreen();
+        GameManager.Instance.SetGameState(GameManager.GameState.Playing);
     }
 }
