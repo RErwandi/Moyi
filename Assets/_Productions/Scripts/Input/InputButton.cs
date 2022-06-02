@@ -5,5 +5,6 @@ public enum InputButton
     RIGHT = 1 << 1,
     UP = 1 << 2,
     DOWN = 1 << 3,
-    INTERACT = 1 << 4
+    INTERACT = 1 << 4,
+    JUMP = 1 << 5
 }

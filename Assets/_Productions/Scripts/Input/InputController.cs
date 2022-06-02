@@ -37,6 +37,7 @@ public class InputController : NetworkBehaviour, INetworkRunnerCallbacks
             currentInput.moveDirection += Vector3.right;
         
         currentInput.Buttons.Set(InputButton.INTERACT, Input.GetKey(KeyCode.E));
+        currentInput.Buttons.Set(InputButton.JUMP, Input.GetKey(KeyCode.Space));
 
         input.Set(currentInput);
     }

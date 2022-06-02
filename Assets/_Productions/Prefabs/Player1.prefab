@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3746202462838039746}
   - component: {fileID: 3746202462838039744}
   - component: {fileID: 3746202462838039747}
+  - component: {fileID: 8332264837683766769}
+  - component: {fileID: -2822347961578923458}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -58,6 +60,8 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 3746202462838039747}
+  - {fileID: 8332264837683766769}
+  - {fileID: -2822347961578923458}
   SimulationBehaviours: []
 --- !u!143 &3746202462838039744
 CharacterController:
@@ -111,6 +115,33 @@ MonoBehaviour:
   rotationSpeed: 15
   _IsGrounded: 0
   _Velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &8332264837683766769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746202462838039756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1ccd3db78c9c54691a196f28ba30cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+--- !u!114 &-2822347961578923458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746202462838039756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb5fd24e1fc67740b28be2a608d1b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  moveSpeed: 0
 --- !u!1 &3746202464049889787
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Fusion;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private NetworkCharacterControllerPrototype controller;
+    private InputController inputController;
+
+    private void Awake()
     {
-        
+        controller = GetBehaviour<NetworkCharacterControllerPrototype>();
+        inputController = GetBehaviour<InputController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void FixedUpdateNetwork()
     {
-        
+        if (GetInput(out InputData input))
+        {
+            // Movement
+            var moveDir = input.moveDirection.normalized;
+            controller.Move(5f * moveDir * Runner.DeltaTime);
+            
+            // Jump
+            if (input.GetButtonPressed(inputController.PrevButtons).IsSet(InputButton.JUMP))
+            {
+                controller.Jump();
+            }
+        }
     }
 }
