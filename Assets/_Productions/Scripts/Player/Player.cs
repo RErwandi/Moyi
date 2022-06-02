@@ -5,6 +5,9 @@ public class Player : NetworkBehaviour
     private NetworkCharacterControllerPrototype controller;
     private InputController inputController;
 
+    [Networked]
+    public NetworkBool InputsAllowed { get; set; }
+    
     private void Awake()
     {
         controller = GetBehaviour<NetworkCharacterControllerPrototype>();
@@ -25,5 +28,10 @@ public class Player : NetworkBehaviour
                 controller.Jump();
             }
         }
+    }
+    
+    public void SetInputsAllowed(bool value)
+    {
+        InputsAllowed = value;
     }
 }
