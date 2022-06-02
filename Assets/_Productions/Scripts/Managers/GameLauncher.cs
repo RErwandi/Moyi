@@ -14,7 +14,7 @@ public class GameLauncher : MonoBehaviour
             launcher = Instantiate(LauncherPrefab).GetComponent<FusionLauncher>();
 
         LevelManager lm = FindObjectOfType<LevelManager>();
-        lm.Launcher = launcher;
+        lm.launcher = launcher;
 
         launcher.Launch(_gameMode, _room, lm);
     }

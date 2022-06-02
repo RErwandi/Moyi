@@ -206,7 +206,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 100321181}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 511852755}
+        m_TargetAssemblyTypeName: LobbyView, Assembly-CSharp
+        m_MethodName: SetGameMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1145020191}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &100321181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,7 +352,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 176544635}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 511852755}
+        m_TargetAssemblyTypeName: LobbyView, Assembly-CSharp
+        m_MethodName: SetGameMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1145020191}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &176544635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +631,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 438271660}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 511852755}
+        m_TargetAssemblyTypeName: LobbyView, Assembly-CSharp
+        m_MethodName: StartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &438271660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,6 +829,7 @@ GameObject:
   - component: {fileID: 511852753}
   - component: {fileID: 511852752}
   - component: {fileID: 511852751}
+  - component: {fileID: 511852755}
   m_Layer: 5
   m_Name: LobbyCanvas
   m_TagString: Untagged
@@ -859,6 +920,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &511852755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511852750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c21014d03068842b1daaaa78b2717f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Player
+  launcher: {fileID: 2058293886}
+  onPlayerJoinedEvent: {fileID: 11400000, guid: 2b25c90adec060d42ab4209a9cb75dfc, type: 2}
+  onPlayerLeftEvent: {fileID: 11400000, guid: 150a4cf77944b1e45835acecc42ea4fa, type: 2}
+  onShutdownEvent: {fileID: 11400000, guid: f8aae04fbc501bf4c816d70aa186449b, type: 2}
+  onPlayerDataSpawnedEvent: {fileID: 11400000, guid: c92fcfa9f89215c49b77c4c1e39bee3c, type: 2}
+  initPainel: {fileID: 1102524292}
+  lobbyPainel: {fileID: 389620134}
+  lobbyPlayerText: {fileID: 2137301208}
+  lobbyRoomName: {fileID: 846463397}
+  startButton: {fileID: 438271659}
+  modeButtons: {fileID: 2100990280}
+  nickText: {fileID: 662659489}
+  room: {fileID: 2113088222}
 --- !u!1 &535666391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,7 +2164,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1145020194}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2100990280}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1410812033}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1145020191}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1145020194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,7 +2457,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1357972956}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 511852755}
+        m_TargetAssemblyTypeName: LobbyView, Assembly-CSharp
+        m_MethodName: LeaveLobby
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1357972956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2630,7 +2765,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1580624045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 511852755}
+        m_TargetAssemblyTypeName: LobbyView, Assembly-CSharp
+        m_MethodName: StartLauncher
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1580624045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3209,6 +3356,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026063842}
   m_CullTransparentMesh: 1
+--- !u!1001 &2058293885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 31845290332796533, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: Flags
+      value: 2561
+      objectReference: {fileID: 0}
+    - target: {fileID: 31845290332796533, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
+      value: 4632460368783776235
+      objectReference: {fileID: 0}
+    - target: {fileID: 31845290332796533, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
+      value: 1981514727390193831
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571870477829285322, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: m_Name
+      value: App
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+--- !u!114 &2058293886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2697030359378294932, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+  m_PrefabInstance: {fileID: 2058293885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c0dbf210396534d9eb8d662aaaaf78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2100990280
 GameObject:
   m_ObjectHideFlags: 0
