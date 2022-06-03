@@ -1,7 +1,9 @@
 using Fusion;
+using UnityEngine;
 
 public class Player : NetworkBehaviour
 {
+    [SerializeField] private Transform cameraTransform;
     private NetworkCharacterControllerPrototype controller;
     private InputController inputController;
 
@@ -12,6 +14,15 @@ public class Player : NetworkBehaviour
     {
         controller = GetBehaviour<NetworkCharacterControllerPrototype>();
         inputController = GetBehaviour<InputController>();
+    }
+
+    public override void Spawned()
+    {
+        if (Object.HasInputAuthority)
+        {
+            CameraManager cameraManager = FindObjectOfType<CameraManager>();
+            cameraManager.SetTarget(cameraTransform);
+        }
     }
 
     public override void FixedUpdateNetwork()

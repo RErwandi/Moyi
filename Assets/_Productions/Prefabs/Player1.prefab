@@ -108,7 +108,7 @@ MonoBehaviour:
     RotBlendEnd: 0.5
     RotTeleportRadians: 1.5
   gravity: -9.8
-  jumpImpulse: 8
+  jumpImpulse: 3
   acceleration: 10
   braking: 10
   maxSpeed: 2
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  cameraTransform: {fileID: 3746202462838039757}
   _InputsAllowed:
     _value: 0
 --- !u!1 &3746202464049889787
