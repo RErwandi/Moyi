@@ -5,6 +5,7 @@ public struct InputData : INetworkInput
 {
     public NetworkButtons Buttons;
     public Vector3 moveDirection;
+    public Vector3 aimForwardVector;
     
     public bool GetButton(InputButton button)
     {

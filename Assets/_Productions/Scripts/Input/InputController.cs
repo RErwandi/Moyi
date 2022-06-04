@@ -8,13 +8,20 @@ public class InputController : NetworkBehaviour, INetworkRunnerCallbacks
 {
     [Networked]
     private NetworkButtons prevData { get; set; }
+
+    public CameraManager cameraManager;
     
     public NetworkButtons PrevButtons
     {
         get => prevData;
         set => prevData = value;
     }
-    
+
+    private void Awake()
+    {
+        cameraManager = FindObjectOfType<CameraManager>();
+    }
+
     public override void Spawned()
     {
         if (Object.HasInputAuthority)
@@ -35,6 +42,8 @@ public class InputController : NetworkBehaviour, INetworkRunnerCallbacks
             currentInput.moveDirection += Vector3.left;
         if (Input.GetKey(KeyCode.D))
             currentInput.moveDirection += Vector3.right;
+
+        currentInput.aimForwardVector = cameraManager.mainCam.transform.forward;
         
         currentInput.Buttons.Set(InputButton.INTERACT, Input.GetKey(KeyCode.E));
         currentInput.Buttons.Set(InputButton.JUMP, Input.GetKey(KeyCode.Space));

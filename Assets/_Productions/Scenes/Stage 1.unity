@@ -41840,6 +41840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thirdPersonCam: {fileID: 335509327}
+  mainCam: {fileID: 335509326}
 --- !u!1001 &1899479999
 PrefabInstance:
   m_ObjectHideFlags: 0

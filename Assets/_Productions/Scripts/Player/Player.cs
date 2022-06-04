@@ -6,6 +6,7 @@ public class Player : NetworkBehaviour
     [SerializeField] private Transform cameraTransform;
     private NetworkCharacterControllerPrototype controller;
     private InputController inputController;
+    private CameraManager cameraManager;
 
     [Networked]
     public NetworkBool InputsAllowed { get; set; }
@@ -14,13 +15,13 @@ public class Player : NetworkBehaviour
     {
         controller = GetBehaviour<NetworkCharacterControllerPrototype>();
         inputController = GetBehaviour<InputController>();
+        cameraManager = FindObjectOfType<CameraManager>();
     }
 
     public override void Spawned()
     {
         if (Object.HasInputAuthority)
         {
-            CameraManager cameraManager = FindObjectOfType<CameraManager>();
             cameraManager.SetTarget(cameraTransform);
         }
     }
@@ -30,8 +31,21 @@ public class Player : NetworkBehaviour
         if (GetInput(out InputData input))
         {
             // Movement
+            // Get camera forward direction, without vertical component.
+            Vector3 forward = input.aimForwardVector;
+
+            // Player is moving on ground, Y component of camera facing is not relevant.
+            forward.y = 0.0f;
+            forward = forward.normalized;
+
+            // Calculate target direction based on camera forward and direction key.
+            Vector3 right = new Vector3(forward.z, 0, -forward.x);
+
             var moveDir = input.moveDirection.normalized;
-            controller.Move(5f * moveDir * Runner.DeltaTime);
+            
+            Vector3 targetDirection;
+            targetDirection = forward * moveDir.z + right * moveDir.x;
+            controller.Move(5f * targetDirection * Runner.DeltaTime);
             
             // Jump
             if (input.GetButtonPressed(inputController.PrevButtons).IsSet(InputButton.JUMP))
