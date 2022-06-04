@@ -4,9 +4,12 @@ using UnityEngine;
 public class Player : NetworkBehaviour
 {
     [SerializeField] private Transform cameraTransform;
+    [SerializeField] private Animator animator;
     private NetworkCharacterControllerPrototype controller;
     private InputController inputController;
     private CameraManager cameraManager;
+    
+    private int speedFloat = Animator.StringToHash("Speed");
 
     [Networked]
     public NetworkBool InputsAllowed { get; set; }
@@ -46,6 +49,9 @@ public class Player : NetworkBehaviour
             Vector3 targetDirection;
             targetDirection = forward * moveDir.z + right * moveDir.x;
             controller.Move(5f * targetDirection * Runner.DeltaTime);
+            
+            var speed = Vector3.ClampMagnitude(moveDir, 1f).magnitude;
+            animator.SetFloat(speedFloat, speed, 0.1f, Runner.DeltaTime);
             
             // Jump
             if (input.GetButtonPressed(inputController.PrevButtons).IsSet(InputButton.JUMP))
