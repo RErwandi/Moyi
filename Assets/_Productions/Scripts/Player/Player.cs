@@ -1,3 +1,4 @@
+using System;
 using Fusion;
 using UnityEngine;
 
@@ -6,63 +7,70 @@ public class Player : NetworkBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private Animator animator;
     private NetworkCharacterControllerPrototype controller;
-    private InputController inputController;
     private CameraManager cameraManager;
+    public PlayerInput playerInput;
     
     private int speedFloat = Animator.StringToHash("Speed");
 
-    [Networked]
-    public NetworkBool InputsAllowed { get; set; }
+    public NetworkButtons pressed;
     
     private void Awake()
     {
         controller = GetBehaviour<NetworkCharacterControllerPrototype>();
-        inputController = GetBehaviour<InputController>();
+        playerInput = GetBehaviour<PlayerInput>();
         cameraManager = FindObjectOfType<CameraManager>();
+    }
+
+    private void OnEnable()
+    {
+        playerInput.onJump.AddListener(Jump);
+        playerInput.onMove.AddListener(Move);
+    }
+
+    private void OnDisable()
+    {
+        playerInput.onJump.RemoveListener(Jump);
+        playerInput.onMove.RemoveListener(Move);
     }
 
     public override void Spawned()
     {
+        playerInput.SetInputsAllowed(true);
+        
         if (Object.HasInputAuthority)
         {
             cameraManager.SetTarget(cameraTransform);
         }
     }
 
-    public override void FixedUpdateNetwork()
+    private void Move(InputData input)
     {
-        if (GetInput(out InputData input))
-        {
-            // Movement
-            // Get camera forward direction, without vertical component.
-            Vector3 forward = input.aimForwardVector;
+        // Movement
+        // Get camera forward direction, without vertical component.
+        Vector3 forward = input.aimForwardVector;
 
-            // Player is moving on ground, Y component of camera facing is not relevant.
-            forward.y = 0.0f;
-            forward = forward.normalized;
+        // Player is moving on ground, Y component of camera facing is not relevant.
+        forward.y = 0.0f;
+        forward = forward.normalized;
 
-            // Calculate target direction based on camera forward and direction key.
-            Vector3 right = new Vector3(forward.z, 0, -forward.x);
+        // Calculate target direction based on camera forward and direction key.
+        Vector3 right = new Vector3(forward.z, 0, -forward.x);
 
-            var moveDir = input.moveDirection.normalized;
+        var moveDir = input.moveDirection.normalized;
             
-            Vector3 targetDirection;
-            targetDirection = forward * moveDir.z + right * moveDir.x;
-            controller.Move(5f * targetDirection * Runner.DeltaTime);
-            
-            var speed = Vector3.ClampMagnitude(moveDir, 1f).magnitude;
-            animator.SetFloat(speedFloat, speed, 0.1f, Runner.DeltaTime);
-            
-            // Jump
-            if (input.GetButtonPressed(inputController.PrevButtons).IsSet(InputButton.JUMP))
-            {
-                controller.Jump();
-            }
-        }
+        Vector3 targetDirection;
+        targetDirection = forward * moveDir.z + right * moveDir.x;
+        controller.Move(5f * targetDirection * Runner.DeltaTime);
+        
+        var speed = Vector3.ClampMagnitude(moveDir, 1f).magnitude;
+        animator.SetFloat(speedFloat, speed, 0.1f, Runner.DeltaTime);
     }
     
-    public void SetInputsAllowed(bool value)
+    private void Jump(NetworkButtons pressed)
     {
-        InputsAllowed = value;
+        if (pressed.IsSet(InputButton.JUMP))
+        {
+            controller.Jump(); 
+        }
     }
 }

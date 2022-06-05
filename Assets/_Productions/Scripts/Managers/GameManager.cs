@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && State == GameState.Playing)
         {
-            _exitCanvas.SetActive(!_exitCanvas.activeInHierarchy);
+            //_exitCanvas.SetActive(!_exitCanvas.activeInHierarchy);
         }
     }
 
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (Player behaviour in FindObjectsOfType<Player>())
         {
-            behaviour.SetInputsAllowed(true);
+            behaviour.playerInput.SetInputsAllowed(true);
         }
     }
 
@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
         _ = ShutdownRunner();
         LoadLevelManager.ResetLoadedScene();
         SceneManager.LoadScene(0);
-        _exitCanvas.SetActive(false);
+        //_exitCanvas.SetActive(false);
     }
 
     public void ExitGame()

@@ -47,7 +47,6 @@ public class PlayerSpawner : MonoBehaviour
     {
         if (runner.IsServer)
         {
-            Debug.Log($"{playerSpawnPos}");
             NetworkObject playerObj = runner.Spawn(playerPrefab, playerSpawnPos / 2f, Quaternion.identity, player, InitializeObjBeforeSpawn);
 
             PlayerData data = GameManager.Instance.GetPlayerData(player, runner);

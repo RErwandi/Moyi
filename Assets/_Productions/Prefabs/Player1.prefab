@@ -13,8 +13,11 @@ GameObject:
   - component: {fileID: 3746202462838039744}
   - component: {fileID: 3746202462838039747}
   - component: {fileID: 8332264837683766769}
+  - component: {fileID: 3527422086227505414}
   - component: {fileID: -2822347961578923458}
   - component: {fileID: 4353370819528516033}
+  - component: {fileID: 8336200945277828622}
+  - component: {fileID: 3212752906294528466}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -62,8 +65,10 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 3746202462838039747}
   - {fileID: 8332264837683766769}
+  - {fileID: 3527422086227505414}
   - {fileID: -2822347961578923458}
   - {fileID: 4353370819528516033}
+  - {fileID: 8336200945277828622}
   SimulationBehaviours: []
 --- !u!143 &3746202462838039744
 CharacterController:
@@ -77,9 +82,9 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.29
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
@@ -110,7 +115,7 @@ MonoBehaviour:
     RotBlendEnd: 0.5
     RotTeleportRadians: 1.5
   gravity: -20
-  jumpImpulse: 5
+  jumpImpulse: 8
   acceleration: 10
   braking: 10
   maxSpeed: 2
@@ -131,6 +136,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   cameraManager: {fileID: 0}
+--- !u!114 &3527422086227505414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746202462838039756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a06eb0ba8cda24c9c47dbd523e80e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  inputController: {fileID: 0}
+  onJump:
+    m_PersistentCalls:
+      m_Calls: []
+  onMove:
+    m_PersistentCalls:
+      m_Calls: []
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  _InputsAllowed:
+    _value: 0
 --- !u!114 &-2822347961578923458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,8 +179,7 @@ MonoBehaviour:
   _interpolationDataSource: 0
   cameraTransform: {fileID: 3746202462838039757}
   animator: {fileID: 5472567994118469690}
-  _InputsAllowed:
-    _value: 0
+  playerInput: {fileID: 0}
 --- !u!114 &4353370819528516033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +209,35 @@ MonoBehaviour:
     _hash: -814817977
   StateHashes: 00000000720fc353aca4823068c682a1e5f4fd8f
   TriggerHashes: 00000000
+--- !u!114 &8336200945277828622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746202462838039756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e78336ce68746b4a968b2e7e91779d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+--- !u!54 &3212752906294528466
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746202462838039756}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &3746202464049889787
 GameObject:
   m_ObjectHideFlags: 0

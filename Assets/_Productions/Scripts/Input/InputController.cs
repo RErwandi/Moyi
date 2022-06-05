@@ -47,6 +47,7 @@ public class InputController : NetworkBehaviour, INetworkRunnerCallbacks
         
         currentInput.Buttons.Set(InputButton.INTERACT, Input.GetKey(KeyCode.E));
         currentInput.Buttons.Set(InputButton.JUMP, Input.GetKey(KeyCode.Space));
+        currentInput.Buttons.Set(InputButton.CANCEL, Input.GetKey(KeyCode.Escape));
 
         input.Set(currentInput);
     }
