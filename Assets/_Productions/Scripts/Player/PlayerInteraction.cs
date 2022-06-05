@@ -6,7 +6,7 @@ public class PlayerInteraction : NetworkBehaviour
 {
     private Interactable currentInteractable;
     private Player player;
-    private bool interacting;
+    private Interactable interacted;
 
     private void Awake()
     {
@@ -27,19 +27,20 @@ public class PlayerInteraction : NetworkBehaviour
 
     private void Interact(NetworkButtons pressed)
     {
-        if (pressed.IsSet(InputButton.INTERACT) && currentInteractable != null && !interacting)
+        if (pressed.IsSet(InputButton.INTERACT) && currentInteractable != null && interacted == null && !currentInteractable.Used)
         {
-            player.playerInput.SetInputsAllowed(false);
-            interacting = true;
+            currentInteractable.Interact(player);
+            currentInteractable.Hide();
+            interacted = currentInteractable;
         }
     }
 
     private void CancelInteract(NetworkButtons pressed)
     {
-        if (pressed.IsSet(InputButton.CANCEL) && interacting)
+        if (pressed.IsSet(InputButton.CANCEL) && interacted != null)
         {
-            player.playerInput.SetInputsAllowed(true);
-            interacting = false;
+            interacted.UnInteract(player);
+            interacted = null;
         }
     }
 
