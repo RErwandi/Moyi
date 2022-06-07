@@ -11,6 +11,8 @@ public class Player : NetworkBehaviour
     public PlayerInput playerInput;
     
     private int speedFloat = Animator.StringToHash("Speed");
+    private Vector3 lastPos;
+    private Quaternion lastRot;
 
     public NetworkButtons pressed;
     
@@ -70,7 +72,31 @@ public class Player : NetworkBehaviour
     {
         if (pressed.IsSet(InputButton.JUMP))
         {
+            Debug.Log("Jump");
             controller.Jump(); 
         }
+    }
+
+    public void MovePosition(Vector3 pos, Quaternion rot)
+    {
+        controller.Controller.enabled = false;
+        
+        lastPos = transform.position;
+        lastRot = transform.rotation;
+        transform.position = pos;
+        transform.rotation = rot;
+    }
+
+    public void MoveLastPosition()
+    {
+        transform.position = lastPos;
+        transform.rotation = lastRot;
+        
+        controller.Controller.enabled = true;
+    }
+
+    public void AnimatorTrigger(string param)
+    {
+        animator.SetTrigger(param);
     }
 }
