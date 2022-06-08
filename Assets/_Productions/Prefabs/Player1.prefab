@@ -116,9 +116,9 @@ MonoBehaviour:
     RotTeleportRadians: 1.5
   gravity: -20
   jumpImpulse: 8
-  acceleration: 20
-  braking: 20
-  maxSpeed: 10
+  acceleration: 10
+  braking: 50
+  maxSpeed: 3
   rotationSpeed: 15
   _IsGrounded: 0
   _Velocity: {x: 0, y: 0, z: 0}
@@ -207,8 +207,8 @@ MonoBehaviour:
     _value: 0
     _inverse: 0
     _hash: -814817977
-  StateHashes: 00000000720fc353aca4823068c682a1e5f4fd8f4fc01f37ff31a069
-  TriggerHashes: 00000000302cec720f1e8551
+  StateHashes: 00000000720fc353aca4823068c682a1e5f4fd8f4fc01f37ff31a069d653cded14210c4f
+  TriggerHashes: 00000000302cec720f1e8551a8edf2ce
 --- !u!114 &8336200945277828622
 MonoBehaviour:
   m_ObjectHideFlags: 0
