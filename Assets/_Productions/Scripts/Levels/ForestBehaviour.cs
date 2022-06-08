@@ -5,6 +5,31 @@ using UnityEngine;
 
 public class ForestBehaviour : LevelBehaviour
 {
+    private static ForestBehaviour _instance = null;
+
+    public static ForestBehaviour Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<ForestBehaviour>();
+                if (_instance == null)
+                {
+                    GameObject go = new GameObject();
+                    go.AddComponent<ForestBehaviour>();
+                    go.name = typeof(ForestBehaviour).ToString();
+                }
+            }
+
+            return _instance;
+        }
+    }
+    
+    public Color sunColor;
+    public Light sunLight;
+    public GameObject nightSky;
+    public GameObject morningSky;
     private int playerOnTent = 0;
     
     public void PlayerOnSleepTent(PlayerRef playerRef, Player player)
@@ -19,6 +44,19 @@ public class ForestBehaviour : LevelBehaviour
         {
             RPC_FinishLevel();
         }
+    }
+
+    public void TurnOnNightSky()
+    {
+        RPC_TurnOnNightSky();
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_TurnOnNightSky()
+    {
+        sunLight.color = sunColor;
+        nightSky.SetActive(true);
+        morningSky.SetActive(false);
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
