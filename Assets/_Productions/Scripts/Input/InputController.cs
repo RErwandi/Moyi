@@ -43,7 +43,8 @@ public class InputController : NetworkBehaviour, INetworkRunnerCallbacks
         if (Input.GetKey(KeyCode.D))
             currentInput.moveDirection += Vector3.right;
 
-        currentInput.aimForwardVector = cameraManager.mainCam.transform.forward;
+        if(cameraManager.mainCam != null)
+            currentInput.aimForwardVector = cameraManager.mainCam.transform.forward;
         
         currentInput.Buttons.Set(InputButton.INTERACT, Input.GetKey(KeyCode.E));
         currentInput.Buttons.Set(InputButton.JUMP, Input.GetKey(KeyCode.Space));
