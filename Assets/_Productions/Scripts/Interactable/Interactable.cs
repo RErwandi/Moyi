@@ -5,8 +5,12 @@ using UnityEngine;
 public class Interactable : NetworkBehaviour
 {
     public GameObject canvas;
+    public bool singleUse;
     
-    [Networked]
+    /// <summary>
+    /// Prevent other player to interact if TRUE
+    /// </summary>
+    [Networked(OnChanged = nameof(OnUseChanged))]
     public bool Used { get; set; }
 
     private void Start()
@@ -16,18 +20,28 @@ public class Interactable : NetworkBehaviour
 
     public virtual void Interact(Player player)
     {
-        Used = true;
+        if (singleUse)
+            Used = true;
     }
 
     public virtual void UnInteract(Player player)
     {
-        Used = false;
+        if(singleUse)
+            Used = false;
+    }
+
+    private static void OnUseChanged(Changed<Interactable> changed)
+    {
+        /*var isUsed = changed.Behaviour.Used;
+        if (isUsed)
+        {
+            changed.Behaviour.Hide();
+        }*/
     }
 
     public void Show()
     {
-        if(!Used)
-            canvas.SetActive(true);
+        canvas.SetActive(true);
     }
 
     public void Hide()

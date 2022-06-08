@@ -337,6 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   canvas: {fileID: 3501150769892740949}
+  singleUse: 1
   _Used: 0
   sitTransform: {fileID: 2329282360796905044}
 --- !u!114 &3501150770659386851

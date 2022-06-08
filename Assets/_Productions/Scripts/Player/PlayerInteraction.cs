@@ -6,7 +6,6 @@ public class PlayerInteraction : NetworkBehaviour
 {
     private Interactable currentInteractable;
     private Player player;
-    private Interactable interacted;
 
     private void Awake()
     {
@@ -27,26 +26,25 @@ public class PlayerInteraction : NetworkBehaviour
 
     private void Interact(NetworkButtons pressed)
     {
-        if (pressed.IsSet(InputButton.INTERACT) && currentInteractable != null && interacted == null && !currentInteractable.Used)
+        if (pressed.IsSet(InputButton.INTERACT) && currentInteractable != null && !currentInteractable.Used)
         {
             currentInteractable.Interact(player);
             currentInteractable.Hide();
-            interacted = currentInteractable;
+            Debug.Log($"Interacted with {currentInteractable.gameObject.name}");
         }
     }
 
     private void CancelInteract(NetworkButtons pressed)
     {
-        if (pressed.IsSet(InputButton.CANCEL) && interacted != null)
+        if (pressed.IsSet(InputButton.CANCEL) && currentInteractable != null)
         {
-            interacted.UnInteract(player);
-            interacted = null;
+            currentInteractable.UnInteract(player);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Interactable" && currentInteractable == null)
+        if (other.tag == "Interactable" && currentInteractable == null && Object.HasInputAuthority)
         {
             var interactable = other.GetComponent<Interactable>();
             currentInteractable = interactable;
@@ -56,7 +54,7 @@ public class PlayerInteraction : NetworkBehaviour
     
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Interactable")
+        if (other.tag == "Interactable" && Object.HasInputAuthority)
         {
             var interactable = other.GetComponent<Interactable>();
             if (interactable == currentInteractable)
