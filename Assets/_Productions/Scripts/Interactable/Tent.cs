@@ -12,6 +12,8 @@ public class Tent : Interactable
         player.playerInput.SetInputsAllowed(false);
         player.AnimatorTrigger("Sleep");
         player.MovePosition(sleepTransform.position, sleepTransform.rotation);
+
+        FindObjectOfType<ForestBehaviour>().PlayerOnSleepTent(player.Object.InputAuthority, player);
     }
 
     public override void UnInteract(Player player)
