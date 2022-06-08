@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Interactable : NetworkBehaviour
 {
-    public GameObject canvas;
     public bool singleUse;
+
+    private Outline outline;
     
     /// <summary>
     /// Prevent other player to interact if TRUE
     /// </summary>
     [Networked(OnChanged = nameof(OnUseChanged))]
     public bool Used { get; set; }
+
+    private void Awake()
+    {
+        outline = GetComponent<Outline>();
+    }
 
     private void Start()
     {
@@ -41,11 +47,11 @@ public class Interactable : NetworkBehaviour
 
     public void Show()
     {
-        canvas.SetActive(true);
+        outline.enabled = true;
     }
 
     public void Hide()
     {
-        canvas.SetActive(false);
+        outline.enabled = false;
     }
 }
