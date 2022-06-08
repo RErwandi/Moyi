@@ -51,6 +51,7 @@ public class PlayerSpawner : MonoBehaviour
 
             PlayerData data = GameManager.Instance.GetPlayerData(player, runner);
             data.Instance = playerObj;
+            playerObj.name = data.Nick;
 
             //playerObj.GetComponent<Player>().Nickname = data.Nick;
         }

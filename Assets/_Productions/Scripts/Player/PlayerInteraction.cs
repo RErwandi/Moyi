@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerInteraction : NetworkBehaviour
 {
-    private Interactable currentInteractable;
+    [Networked]
+    private Interactable currentInteractable { get; set; }
     private Player player;
 
     private void Awake()
@@ -44,7 +45,7 @@ public class PlayerInteraction : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Interactable" && currentInteractable == null && Object.HasInputAuthority)
+        if (other.tag == "Interactable" && currentInteractable == null)
         {
             var interactable = other.GetComponent<Interactable>();
             currentInteractable = interactable;
@@ -54,12 +55,13 @@ public class PlayerInteraction : NetworkBehaviour
     
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Interactable" && Object.HasInputAuthority)
+        if (other.tag == "Interactable")
         {
             var interactable = other.GetComponent<Interactable>();
             if (interactable == currentInteractable)
             {
                 interactable.Hide();
+                
                 currentInteractable = null;
             }
         }
