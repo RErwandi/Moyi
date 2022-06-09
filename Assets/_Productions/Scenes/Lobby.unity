@@ -3368,12 +3368,56 @@ PrefabInstance:
       value: 2561
       objectReference: {fileID: 0}
     - target: {fileID: 31845290332796533, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NestedObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 31845290332796533, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NestedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 31845290332796533, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 31845290332796533, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NetworkedBehaviours.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 31845290332796533, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
       value: 4632460368783776235
       objectReference: {fileID: 0}
     - target: {fileID: 31845290332796533, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
       value: 1981514727390193831
+      objectReference: {fileID: 0}
+    - target: {fileID: 2421889194913949817, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: showSource
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863142690510254445, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: Flags
+      value: 2561
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863142690510254445, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
+      value: 8811783792737831170
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863142690510254445, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
+      value: 5685172181334048130
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300934121668482939, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: Flags
+      value: 2561
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300934121668482939, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
+      value: 1175334579439627118
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300934121668482939, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
+      value: 9086038294091683973
       objectReference: {fileID: 0}
     - target: {fileID: 6039488606610724906, guid: c9d0511296b207e4faae0e0acb9e820e, type: 3}
       propertyPath: m_RootOrder

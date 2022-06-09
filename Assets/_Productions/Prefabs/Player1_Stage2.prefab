@@ -8,6 +8,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3746202462838039746, guid: bd831928284a075418f40a06eee8e747, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746202462838039746, guid: bd831928284a075418f40a06eee8e747, type: 3}
+      propertyPath: NetworkedBehaviours.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746202462838039746, guid: bd831928284a075418f40a06eee8e747, type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
       value: 8397682296401916289
       objectReference: {fileID: 0}

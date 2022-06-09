@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CarterGames.Assets.AudioManager;
 using Fusion;
 using UnityEngine;
 
@@ -31,7 +32,21 @@ public class ForestBehaviour : LevelBehaviour
     public GameObject nightSky;
     public GameObject morningSky;
     private int playerOnTent = 0;
-    
+
+    public override void Spawned()
+    {
+        base.Spawned();
+        PlayAmbientMusic();
+    }
+
+    private void PlayAmbientMusic()
+    {
+        if (Object.HasStateAuthority)
+        {
+            NetworkMusicManager.Instance.Play("Forest BGM", 1);
+        }
+    }
+
     public void PlayerOnSleepTent(PlayerRef playerRef, Player player)
     {
         if (playerOnTent >= 2)

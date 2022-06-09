@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1a550171c18a144be85aee12017d69, type: 3}
+  m_Name: Audio Manager File
+  m_EditorClassIdentifier: 
+  audioMixer:
+  - {fileID: 0}
+  soundPrefab: {fileID: 322064603624763291, guid: 6051d75b0602b2d4e80762524c183b04, type: 3}
+  isPopulated: 1
+  directory:
+  - _Productions/Audio
+  library:
+  - key: Apocalypse - Cigarettes After Sex
+    value: {fileID: 8300000, guid: c8a1ffa4aff7ac44ca8b6052188b5971, type: 3}
+  - key: Forest BGM
+    value: {fileID: 8300000, guid: aeb966bb08e925544843a72bf859db02, type: 3}
+  - key: 'Iron & Wine - Flightless Bird American Mouth '
+    value: {fileID: 8300000, guid: ac8218261d11c264490dd596907a74bf, type: 3}
+  - key: Timber Hearth
+    value: {fileID: 8300000, guid: 4ad7f1136e07b874b80156d2db0ab7cc, type: 3}
+  - key: Travelers
+    value: {fileID: 8300000, guid: f4f85d88229d078478cd3836bc771dbc, type: 3}
+  tabPos: 1
