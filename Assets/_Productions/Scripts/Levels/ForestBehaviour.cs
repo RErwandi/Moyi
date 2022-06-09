@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using CarterGames.Assets.AudioManager;
@@ -32,6 +33,12 @@ public class ForestBehaviour : LevelBehaviour
     public GameObject nightSky;
     public GameObject morningSky;
     private int playerOnTent = 0;
+    private Material skyMaterial;
+
+    private void Awake()
+    {
+        skyMaterial = nightSky.GetComponentInChildren<Renderer>().material;
+    }
 
     public override void Spawned()
     {
@@ -77,6 +84,50 @@ public class ForestBehaviour : LevelBehaviour
         sunLight.color = sunColor;
         nightSky.SetActive(true);
         morningSky.SetActive(false);
+    }
+    
+    public void EnableStars1()
+    {
+        RPC_EnableStars1();
+    }
+    
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_EnableStars1()
+    {
+        skyMaterial.SetFloat("_StarLayer3MaxRadius", 0.05f);
+    }
+    
+    public void EnableStars2()
+    {
+        RPC_EnableStars2();
+    }
+    
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_EnableStars2()
+    {
+        skyMaterial.SetFloat("_StarLayer2MaxRadius", 0.005f);
+    }
+    
+    public void EnableStars3()
+    {
+        RPC_EnableStars3();
+    }
+    
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_EnableStars3()
+    {
+        skyMaterial.SetFloat("_StarLayer1MaxRadius", 0.01f);
+    }
+    
+    public void BiggerMoon()
+    {
+        RPC_BiggerMoon();
+    }
+    
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_BiggerMoon()
+    {
+        skyMaterial.SetFloat("_MoonRadius", 0.12f);
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]

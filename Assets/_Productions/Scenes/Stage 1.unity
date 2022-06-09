@@ -10313,6 +10313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarrySkyCubemap
       objectReference: {fileID: 0}
+    - target: {fileID: 1326092216588766, guid: e3183c12e83ea424f9e87fc42922b0b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4643100267121078, guid: e3183c12e83ea424f9e87fc42922b0b4, type: 3}
       propertyPath: m_RootOrder
       value: 8

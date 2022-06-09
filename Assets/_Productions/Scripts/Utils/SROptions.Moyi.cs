@@ -8,6 +8,30 @@ public partial class SROptions {
 	{
 		ForestBehaviour.Instance.TurnOnNightSky();
 	}
+	
+	[Category("Forest")]
+	public void EnableStars1()
+	{
+		ForestBehaviour.Instance.EnableStars1();
+	}
+	
+	[Category("Forest")]
+	public void EnableStars2()
+	{
+		ForestBehaviour.Instance.EnableStars2();
+	}
+	
+	[Category("Forest")]
+	public void EnableStars3()
+	{
+		ForestBehaviour.Instance.EnableStars3();
+	}
+	
+	[Category("Forest")]
+	public void BiggerMoon()
+	{
+		ForestBehaviour.Instance.BiggerMoon();
+	}
 
 	[Category("Music")]
 	public void ForestBGM()

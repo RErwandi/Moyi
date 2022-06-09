@@ -106,7 +106,7 @@ Material:
     - _MoonEdgeFade: 0.18
     - _MoonHDRBoost: 1
     - _MoonHeight: 0.788
-    - _MoonRadius: 0.086
+    - _MoonRadius: 0.04
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -117,14 +117,14 @@ Material:
     - _StarLayer1Density: 0.0149
     - _StarLayer1EdgeFade: 0.91
     - _StarLayer1HDRBoost: 1.2
-    - _StarLayer1MaxRadius: 0.0043
+    - _StarLayer1MaxRadius: 0
     - _StarLayer1RotationSpeed: 0
     - _StarLayer1TwinkleAmount: 0.864
     - _StarLayer1TwinkleSpeed: 3
     - _StarLayer2Density: 0.0086
     - _StarLayer2EdgeFade: 0.2
     - _StarLayer2HDRBoost: 1.1
-    - _StarLayer2MaxRadius: 0.004
+    - _StarLayer2MaxRadius: 0
     - _StarLayer2RotationSpeed: 0
     - _StarLayer2TwinkleAmount: 0.632
     - _StarLayer2TwinkleSpeed: 4

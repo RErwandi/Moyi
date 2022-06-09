@@ -29,14 +29,12 @@ public class NetworkMusicManager : NetworkBehaviour
 
     public void Play(string request, int loop = 0, float volume = 1f)
     {
-        Debug.Log($"Receive local play");
         RPC_PlayMusic(request, loop, volume);
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_PlayMusic(string request, int loop = 0, float volume = 1f)
     {
-        Debug.Log($"Receive RPC play");
         AudioClip clip = null;
         foreach (var lib in AudioManager.instance.AudioManagerFile.library.Where(lib => lib.key == request))
         {
