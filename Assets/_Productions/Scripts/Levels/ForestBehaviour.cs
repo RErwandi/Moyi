@@ -38,12 +38,17 @@ public class ForestBehaviour : LevelBehaviour
             return;
         
         playerOnTent++;
-        Debug.Log($"Player in Tent{playerOnTent}");
 
         if (playerOnTent >= 2)
         {
-            RPC_FinishLevel();
+            Invoke("NextLevel", 5f);
         }
+    }
+
+    public void PlayerWakeFromTent(PlayerRef playerRef, Player player)
+    {
+        playerOnTent--;
+        CancelInvoke("NextLevel");
     }
 
     public void TurnOnNightSky()
@@ -68,7 +73,6 @@ public class ForestBehaviour : LevelBehaviour
     
     private void NextLevel()
     {
-        if (FusionHelper.LocalRunner.IsClient) return;
-        LoadingManager.Instance.LoadNextLevel(FusionHelper.LocalRunner);
+        RPC_FinishLevel();
     }
 }

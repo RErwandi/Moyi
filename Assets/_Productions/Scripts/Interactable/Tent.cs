@@ -22,5 +22,7 @@ public class Tent : Interactable
         player.playerInput.SetInputsAllowed(true);
         player.AnimatorTrigger("Standby");
         player.MoveLastPosition();
+        
+        FindObjectOfType<ForestBehaviour>().PlayerWakeFromTent(player.Object.InputAuthority, player);
     }
 }
