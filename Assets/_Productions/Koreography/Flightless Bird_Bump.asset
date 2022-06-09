@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1223223985, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
+  m_Name: Flightless Bird_Bump
+  m_EditorClassIdentifier: 
+  mEventID: Flightless Bird_Bump
+  mEventList:
+  - mStartSample: 3401999
+    mEndSample: 3401999
+  - mStartSample: 3453545
+    mEndSample: 3453545
+  - mStartSample: 3505090
+    mEndSample: 3505090
+  - mStartSample: 3556636
+    mEndSample: 3556636
+  - mStartSample: 3608181
+    mEndSample: 3608181
+  - mStartSample: 3659727
+    mEndSample: 3659727
+  - mStartSample: 3711272
+    mEndSample: 3711272
+  - mStartSample: 3762818
+    mEndSample: 3762818
+  - mStartSample: 3814363
+    mEndSample: 3814363
+  - mStartSample: 3865909
+    mEndSample: 3865909
+  - mStartSample: 3917454
+    mEndSample: 3917454
+  - mStartSample: 3969000
+    mEndSample: 3969000
+  _SerializedPayloadTypes:
+  - SonicBloom.Koreo.FloatPayload
+  _ColorPayloads: []
+  _ColorPayloadIdxs: 
+  _CurvePayloads: []
+  _CurvePayloadIdxs: 
+  _FloatPayloads:
+  - mFloatVal: 70
+  - mFloatVal: 75
+  - mFloatVal: 80
+  - mFloatVal: 70
+  - mFloatVal: 60
+  - mFloatVal: 70
+  - mFloatVal: 70
+  - mFloatVal: 75
+  - mFloatVal: 80
+  - mFloatVal: 70
+  - mFloatVal: 60
+  - mFloatVal: 70
+  _FloatPayloadIdxs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b000000
+  _GradientPayloads: []
+  _GradientPayloadIdxs: 
+  _IntPayloads: []
+  _IntPayloadIdxs: 
+  _SpectrumPayloads: []
+  _SpectrumPayloadIdxs: 
+  _TextPayloads: []
+  _TextPayloadIdxs: 
